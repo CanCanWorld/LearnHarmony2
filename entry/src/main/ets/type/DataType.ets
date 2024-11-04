@@ -1,14 +1,7 @@
-export interface Data {
-  title: string;
-  label: string;
-  fhdUrl: string;
-  uhdUrl: string;
-  copyright: string;
-  description: string;
-  time: string;
-}
-
-export interface DataType {
-  data: Data;
-  success: boolean;
+export interface DataType<T> {
+  errno: string;
+  errmsg: string;
+  consume: string;
+  total: string;
+  data: T[];
 }
