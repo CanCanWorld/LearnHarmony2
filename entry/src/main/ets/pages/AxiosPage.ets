@@ -26,6 +26,11 @@ struct AxiosPage {
           ListItem() {
             Image(item.url_thumb)
           }
+          .swipeAction({
+            end: this.ItemSwiper(() => {
+              this.images.splice(this.images.indexOf(item), 1)
+            })
+          })
         })
       }
       .width("100%")
@@ -33,5 +38,16 @@ struct AxiosPage {
     }
     .height('100%')
     .width('100%')
+  }
+
+  @Builder
+  ItemSwiper(onClick: () => void) {
+    Text("删除")
+      .backgroundColor(Color.Red)
+      .padding(10)
+      .fontSize(20)
+      .fontColor(Color.White)
+      .height("100%")
+      .onClick(onClick)
   }
 }
